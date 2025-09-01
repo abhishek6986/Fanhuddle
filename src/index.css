@@ -1,0 +1,337 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mindvalley Design System
+Clean, modern design inspired by personal growth and transformation
+All colors MUST be HSL.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    /* Simple Black & White with Lighter Purple Design System */
+    --primary: 270 100% 45%; /* Lighter Purple */
+    --primary-variant: 270 100% 50%; /* Even lighter purple */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --accent: 270 100% 45%; /* Lighter Purple */
+    --accent-foreground: 0 0% 100%;
+    
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
+    
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 270 100% 45%;
+    
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Simple Gradients - Black, White, Lighter Purple */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%) 0%, hsl(270 100% 35%) 50%, hsl(0 0% 0%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-variant)));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 9%) 0%, hsl(0 0% 15%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
+    
+    /* Enhanced Shadows */
+    --shadow-button: 0 8px 25px -8px hsl(var(--primary) / 0.3);
+    --shadow-card: 0 10px 40px -15px hsl(0 0% 0% / 0.1);
+    --shadow-elegant: 0 20px 60px -20px hsl(var(--primary) / 0.25);
+    
+    /* Typography */
+    --text-hero: clamp(3rem, 8vw, 6rem);
+    --text-display: clamp(2rem, 6vw, 3.5rem);
+    --text-headline: clamp(1.5rem, 4vw, 2.5rem);
+    
+    --radius: 0.5rem;
+
+    /* Sidebar variables */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 9% 9%;
+    --foreground: 0 0% 98%;
+    
+    --card: 220 9% 9%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 220 9% 9%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 270 100% 45%;
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 220 9% 15%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 220 9% 15%;
+    --muted-foreground: 220 9% 65%;
+    
+    --accent: 270 100% 45%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 220 9% 15%;
+    --input: 220 9% 15%;
+    --ring: 270 100% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Typography Utilities */
+  .text-display {
+    @apply font-bold text-5xl md:text-7xl tracking-tight;
+  }
+  
+  .text-hero {
+    @apply font-bold text-3xl md:text-5xl lg:text-6xl tracking-tight;
+  }
+  
+  .text-section {
+    @apply font-bold text-2xl md:text-3xl tracking-tight;
+  }
+  
+  .text-headline {
+    @apply font-semibold text-xl md:text-2xl tracking-tight;
+  }
+
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-bounce-subtle {
+    animation: bounceSubtle 2s ease-in-out infinite;
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  /* Animation Delays */
+  .animation-delay-300 {
+    animation-delay: 300ms;
+    opacity: 0;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+    opacity: 0;
+  }
+  
+  .animation-delay-900 {
+    animation-delay: 900ms;
+    opacity: 0;
+  }
+  
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+    opacity: 0;
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:translate-y-[-2px] hover:shadow-xl;
+  }
+  
+  /* Racing stripe animations */
+  .racing-stripe {
+    @apply relative overflow-hidden;
+  }
+  
+  .racing-stripe::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-0.5 bg-primary opacity-60;
+    animation: raceStripe 2s ease-in-out infinite;
+  }
+  
+  /* Button press effect */
+  .btn-press {
+    @apply active:scale-95 transition-transform duration-150;
+  }
+  
+  /* Glassmorphism effect */
+  .glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+  
+  /* Video-like animation effects */
+  .animate-subtle-zoom {
+    animation: subtle-zoom 8s ease-in-out infinite;
+  }
+  
+  .animate-gradient-shift {
+    animation: gradient-shift 6s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  /* Custom Gradient Backgrounds */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+  
+  /* Custom Shadow Utilities */
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-button {
+    box-shadow: var(--shadow-button);
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Racing Animation */
+@keyframes raceStripe {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Video-like background animations */
+@keyframes subtle-zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08) rotate(0.5deg);
+  }
+  100% {
+    transform: scale(1.02) rotate(-0.5deg);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background: linear-gradient(45deg, rgba(0,0,0,0.4), transparent, rgba(0,0,0,0.2));
+    opacity: 1;
+  }
+  33% {
+    background: linear-gradient(135deg, rgba(0,0,0,0.2), transparent, rgba(0,0,0,0.4));
+    opacity: 0.8;
+  }
+  66% {
+    background: linear-gradient(225deg, rgba(0,0,0,0.3), transparent, rgba(0,0,0,0.3));
+    opacity: 0.9;
+  }
+  100% {
+    background: linear-gradient(315deg, rgba(0,0,0,0.4), transparent, rgba(0,0,0,0.2));
+    opacity: 1;
+  }
+}
